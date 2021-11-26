@@ -1,6 +1,6 @@
 ---
 layout: post
-title:  "Effective Java. Конспект"
+title:  "[Work in Progress] Effective Java. Конспект"
 date:   2021-11-21 15:06:24 +0300
 categories: books
 ---
