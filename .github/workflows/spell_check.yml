@@ -9,10 +9,10 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install ispell
+      - name: Install aspell
         run: |
           sudo apt update
-          sudo apt install -y ispell
+          sudo apt install -y aspell
 
       - name: Check _posts directory
-        run: '! cat _posts/* | ispell -a | grep ^\&'
+        run: '! cat _posts/* | aspell --lang=ru list | aspell --lang=en --camel-case list | grep -R -f - _posts -n --color=always'
