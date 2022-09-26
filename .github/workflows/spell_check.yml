@@ -11,8 +11,8 @@ jobs:
 
       - name: Install ispell
         run: |
-          apt update
-          apt install -y ispell
+          sudo apt update
+          sudo apt install -y ispell
 
       - name: Check _posts directory
         run: '! cat _posts/* | ispell -a | grep ^\&'
