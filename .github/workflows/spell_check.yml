@@ -15,4 +15,4 @@ jobs:
           sudo apt install -y aspell aspell-en aspell-ru
 
       - name: Check _posts directory
-        run: '! cat _posts/* | aspell --encoding=UTF-8 --lang=ru list | aspell --lang=en --camel-case list | sed "s/\(.*\)/\\\\b\1\\\\b/" | grep -R -f - _posts -n --color=always'
+        run: '! cat _posts/* | aspell --encoding=UTF-8 --lang=ru list | aspell --encoding=UTF-8 --lang=en --camel-case list | sed "s/\(.*\)/\\\\b\1\\\\b/" | grep -R -f - _posts -n --color=always'
