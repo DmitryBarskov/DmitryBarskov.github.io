@@ -9,10 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install aspell
+      - name: Set locale
+        run: |
+          export LC_CTYPE=C.utf8
+
+      - name: Install nuspell
         run: |
           sudo apt update
-          sudo apt install -y aspell aspell-en aspell-ru
+          sudo apt install -y nuspell hunspell-ru make
 
-      - name: Check _posts directory
-        run: '! cat _posts/* | aspell --encoding=UTF-8 --lang=ru list | aspell --encoding=UTF-8 --lang=en --camel-case list | sed "s/\(.*\)/\\\\b\1\\\\b/" | grep -R -f - _posts -n --color=always'
+      - name: Check _posts
+        run: make nuspell
