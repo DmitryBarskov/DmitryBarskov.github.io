@@ -15,6 +15,5 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      # Runs a single command using the runners shell
-      - name: Run a one-line script
-        run: cat _posts/* | ! ispell -a | grep ^\&
+      - name: Check _posts directory
+        run: ! cat _posts/* | ispell -a | grep ^\&
