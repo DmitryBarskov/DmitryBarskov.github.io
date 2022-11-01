@@ -9,10 +9,14 @@ jobs:
     steps:
       - uses: actions/checkout@v3
 
-      - name: Install ispell
+      - name: Set locale
+        run: |
+          export LC_CTYPE=C.utf8
+
+      - name: Install nuspell
         run: |
           sudo apt update
-          sudo apt install -y ispell
+          sudo apt install -y nuspell hunspell-ru make
 
-      - name: Check _posts directory
-        run: '! cat _posts/* | ispell -a | grep ^\&'
+      - name: Check _posts
+        run: make nuspell
